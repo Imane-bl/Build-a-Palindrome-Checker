@@ -1,28 +1,36 @@
 
 
+
 function palindrome(str) {
-//for lettres uppercase
-str=str.replace(/[^a-z0-9]/gi, '').toLowerCase();//non letters ans non numbers
-
-
-    for(let i=0;i<(str.length/2);i++){
-        if(str[i] !== str[str.length-i-1]){
-         return `"${str}"=> IS not a PALINDROME `;
-             }
-    }
-            
-             return `"${str}"=> IS a PALINDROME `;
-            
-}
-     
-
-function checkPalindrome() {
-    const inputText = document.getElementById('text-input').value;
-    const resultElement = document.getElementById('result');
-    const result = palindrome(inputText);
-
-    resultElement.innerHTML = result;
+    let strOrigunale=str;
+      str=str.replace(/\W|_/g, "");//
+         const newA=[];
+      for(let i=str.length-1;i>=0;i--){
+          newA.push(str[i]);
+          }
+  
+  const newmot=newA.join("");
+  if(str === ''){
+   return  alert("Please input a value");
+  }
+  if(newmot.toLowerCase() !== str.toLowerCase()){
+  
+  return `${strOrigunale} is not a palindrome`;
+   }
     
-    // Clear the input field after checking
-    document.getElementById('text-input').value = '';
-}
+   return `${strOrigunale} is a palindrome`;
+      }  
+      
+      function checkPalindrome() {
+          const inputText = document.getElementById('text-input').value;
+          const resultElement = document.getElementById('result');
+          const result = palindrome(inputText);
+  
+    
+      
+          resultElement.innerHTML = result;
+          
+          // Clear the input field after checking
+          document.getElementById('text-input').value = '';
+      }
+  
